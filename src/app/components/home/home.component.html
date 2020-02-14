@@ -1,0 +1,56 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-3">PeliculasAPP</h1>
+        <p class="lead">Esta es una aplicación de películas</p>
+    </div>
+</div>
+
+<div class="container">
+    <br>
+
+    <h1>Cartelera</h1>
+    <hr>
+
+    <div class="row">
+
+        <div class="col-sm-6">
+
+            <div class="row" *ngIf="cartelera">
+                <div class="col-md-12 div-pic-1 puntero" [ngStyle]="{ 'background-image': 'url( '+ (cartelera[0] | peliculaImagen) +' )'  }">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 div-pic-2 puntero" [ngStyle]="{ 'background-image': 'url( '+ (cartelera[1] | peliculaImagen) +' )'  }">
+                </div>
+                <div class="col-sm-6 div-pic-2 puntero" [ngStyle]="{ 'background-image': 'url( '+ (cartelera[2] | peliculaImagen) +' )'  }">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-sm-6">
+
+
+            <div class="row">
+                <div class="col-sm-6 div-pic-2 puntero" [ngStyle]="{ 'background-image': 'url( '+ (cartelera[3] | peliculaImagen) +' )'  }">
+                </div>
+                <div class="col-sm-6 div-pic-2 puntero" [ngStyle]="{ 'background-image': 'url( '+ (cartelera[4] | peliculaImagen) +' )'  }">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 div-pic-1 puntero" [ngStyle]="{ 'background-image': 'url( '+ (cartelera[5] | peliculaImagen) +' )'  }">
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+</div>
