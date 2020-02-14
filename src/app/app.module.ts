@@ -16,6 +16,7 @@ import { PeliculaComponent } from './components/pelicula/pelicula.component';
 // IMPORTAR RUTAS
 import { ROUTES } from './app.routes';
 import { PeliculaImagenPipe } from './pipes/pelicula-imagen.pipe';
+import { GaleriaComponent } from './components/home/galeria.component';
 
 
 
@@ -26,7 +27,8 @@ import { PeliculaImagenPipe } from './pipes/pelicula-imagen.pipe';
     HomeComponent,
     SearchComponent,
     PeliculaComponent,
-    PeliculaImagenPipe
+    PeliculaImagenPipe,
+    GaleriaComponent
   ],
   imports: [
     BrowserModule,

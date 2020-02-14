@@ -8,15 +8,19 @@ import { PeliculasService } from '../../services/peliculas.service';
   styles: []
 })
 export class HomeComponent {
-  peliculasPopulares: any[] = [];
-  cartelera: any[] = [];
+  populares: any ;
+  cartelera: any ;
+  ninos: any ;
 
   constructor(public ps: PeliculasService) {
     this.ps.getCartelera()
-        .subscribe( (data:any) => {
-         console.log('CARTELERA:', data);
-         this.cartelera = data;
-      });
+        .subscribe( (data: any) => this.cartelera = data);
+
+    this.ps.getPopulares()
+        .subscribe( (data: any) => this.populares = data);
+
+    this.ps.getPopularesNinos()
+        .subscribe( (data: any) => this.ninos = data);
   }
 
 }

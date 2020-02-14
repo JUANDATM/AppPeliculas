@@ -20,13 +20,18 @@ export class PeliculasService {
 
 
   getPopulares(){
-    let url = `${ this.urlMoviedb }/discover/movie?sort_by=popularity.desc&api_key=${this.apikey}&language=es`;
+    let url = `${ this.urlMoviedb }/discover/movie/?certification_country=US&certification=R&sort_by=vote_average.desc&api_key=${this.apikey}&language=es`;
 
     return this.http.get( url )
                     .map( (res: any ) => res.results);
   }
 
+  getPopularesNinos(){
+    let url = `${ this.urlMoviedb }/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc&api_key=${this.apikey}&language=es`;
 
+    return this.http.get( url )
+                    .map( (res: any ) => res.results);
+  }
 
 
   buscarPelicula( texto: string ) {
@@ -36,9 +41,6 @@ export class PeliculasService {
     return this.http.get( url )
           .map( (res: any ) => res.results);
   }
-
-
-
 
   getCartelera(){
     let desde = new Date();
