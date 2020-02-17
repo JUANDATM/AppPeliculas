@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
 
 
 import { RouterModule } from '@angular/router';
@@ -33,6 +35,7 @@ import { GaleriaComponent } from './components/home/galeria.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot(ROUTES, {useHash: true})
   ],
   providers: [],

@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 
 import {HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
-
 
 // tslint:disable-next-line: import-blacklist
 import 'rxjs/Rx';
@@ -15,8 +13,17 @@ export class PeliculasService {
   private apikey: string = '149686482f06d811a4d245f24cbd6147';
   private urlMoviedb: string = 'https://api.themoviedb.org/3';
 
+  peliculas:any[] = [];
+
   constructor(private http: HttpClient) { }
 
+
+  getPelicula(id:string){
+    let url = `${ this.urlMoviedb }/movie/${id}?&api_key=${this.apikey}&language=es`;
+
+    return this.http.get( url )
+                    .map( (res: any ) => res);
+  }
 
 
   getPopulares(){
@@ -39,7 +46,11 @@ export class PeliculasService {
     let url = `${ this.urlMoviedb }/search/movie?query=${ texto }&sort_by=popularity.desc&api_key=${ this.apikey }&language=es`;
 
     return this.http.get( url )
-          .map( (res: any ) => res.results);
+          .map( (res: any ) => {
+            this.peliculas = res.results;
+            console.log(this.peliculas);
+            return res.results;
+          });
   }
 
   getCartelera(){

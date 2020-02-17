@@ -11,6 +11,10 @@ export class PeliculaImagenPipe implements PipeTransform {
     }
 
     const url = 'http://image.tmdb.org/t/p/w500';
+
+    if (poster) {
+      return url + pelicula.poster_path;
+    }
     if ( poster ) {
        return url + pelicula.poster_path;
        }
